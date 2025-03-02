@@ -1,3 +1,5 @@
+import './styles.css'
+
 const weatherForm = document.getElementById('weather-form');
 
 weatherForm.addEventListener('submit', e => {
