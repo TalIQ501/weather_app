@@ -6,12 +6,26 @@
     <title>Weather App</title>
 </head>
 <body>
-    <form action="submit" id="weather-form" class="">
-        <label for="input-country">Country</label>
-        <input name="input-country" id="input-country">
-        <label for="input-city">City</label>
-        <input name="input-city" id="input-city">
-        <button id="btn-weather-submit">Submit</button>
-    </form>
+    <dialog id="dialog-weather-form">
+        <form action="submit" id="weather-form" class="">
+            <label for="input-country">Country</label>
+            <input name="input-country" id="input-country">
+            <label for="input-city">City</label>
+            <input name="input-city" id="input-city">
+            <button id="btn-weather-submit">Submit</button>
+        </form>
+    </dialog>
+    <header>
+        <div id="logo-div">
+            <h1>Weather App</h1>
+        </div>
+        <nav>
+            <button id="btn-set-location" class="btn-primary">Location</button>
+            <button id="btn-refresh" class="btn-secondary">Refresh</button>
+        </nav>
+    </header>
+    <section id="content">
+
+    </section>
 </body>
 </html>
