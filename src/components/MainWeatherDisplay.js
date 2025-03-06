@@ -4,7 +4,7 @@ export const MainWeatherDisplay = (weatherData, tempScale) => {
 
     const temperatureDisplay = document.createElement('div');
     temperatureDisplay.classList.add('card-temp-disp');
-    if (tempScale === 'f') temperatureDisplay.textContent = weatherData.getTempF();
+    if (tempScale === true) temperatureDisplay.textContent = weatherData.getTempF();
     else temperatureDisplay.textContent = weatherData.getTempC();
     
     const descriptionDisplay = document.createElement('div');

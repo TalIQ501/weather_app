@@ -7,15 +7,20 @@ export const dataManager = () => {
     const getCity = () => currentCity;
     const getCountry = () => currentCountry;
     
-    const changeCity = (city) => currentCity = city;
-    const changeCountry = (country) => currentCountry = country;
+    const setCity = (city) => currentCity = city;
+    const setCountry = (country) => currentCountry = country;
 
     const conditionManagerFunc = () => {
         let lastRetrieved = null;
         let currentWeatherData = null;
+
+        let scaleFahr = true;
+
+        const toggleScale = () => scaleFahr = !scaleFahr;
+
         const getLastRetrieved = () => lastRetrieved;
         const updateLastRetrieved = () => lastRetrieved = new Date();
-        const changeData = (data) => currentWeatherData = data;
+        const setData = (data) => currentWeatherData = data;
 
         const getData = (dataOf) => {
             if (dataOf === 'current') {
@@ -24,6 +29,8 @@ export const dataManager = () => {
 
             return timeConditions(currentWeatherData['days'][dataOf]);
         }
+
+        const getAllData = () => currentWeatherData;
 
         const timeConditions = (timeConditions) => {
             const temperature = timeConditions.temp;
@@ -42,11 +49,10 @@ export const dataManager = () => {
             return { getTempF, getTempC, getDesc, getFeelsLike, getFeelsMax , getFeelsMin }
         }
         
-        return { getLastRetrieved, updateLastRetrieved, changeData, getData }
+        return { toggleScale, getLastRetrieved, updateLastRetrieved, setData, getData, getAllData }
     }
 
     const conditionManager = conditionManagerFunc();
 
-    return { getCity, getCountry, changeCity, changeCountry, conditionManager  }
-
+    return { getCity, getCountry, setCity, setCountry, conditionManager }
 }
