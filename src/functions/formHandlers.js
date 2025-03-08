@@ -5,14 +5,15 @@ export const weatherFormHandler = async (dataManager, formData) => {
     const city = formData.get('input-city');
     const weatherData = await weatherDataAPI(`${city},${country}`);
 
-    if (!weatherData) {
+    if (weatherData === null) {
         console.log('Failed to retrieve data');
         return;
     }
     
     dataManager.setCity(city);
     dataManager.setCountry(country);
-
-    dataManager.conditionManager.setData(weatherData);
+    await dataManager.conditionManager.setData(weatherData);
+    
+    console.log(dataManager.conditionManager.getAllData())
     return;
 }

@@ -10,7 +10,10 @@ export const displayManager = () => {
         targetDiv.appendChild(noLocationDiv);
     }
 
-    const mainWeather = (data, targetDiv, city, country) => {
-        MainWeatherDisplay(data, city)
+    const mainWeatherPage = async (targetDiv, dataManager) => {
+        const mainDisp = await MainWeatherDisplay(dataManager)
+        targetDiv.appendChild(mainDisp);
     }
+
+    return { noLocation, mainWeatherPage }
 }
