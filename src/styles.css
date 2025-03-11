@@ -54,3 +54,27 @@ header {
     font-size: 1.25rem;
     font-weight: 500;
 }
+
+.temp-scorch {
+    color: crimson;
+}
+
+.temp-hot {
+    color: orange;
+}
+
+.temp-warm {
+    color: yellow;
+}
+
+.temp-cool {
+    color: aliceblue;
+}
+
+.temp-cold {
+    color: blue;
+}
+
+.temp-freeze {
+    color: darkblue;
+}

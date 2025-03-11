@@ -1,5 +1,4 @@
 import { IconPicker } from "./iconPicker";
-import commonStyles from './WeatherCardCommon.module.css';
 
 export const MainWeatherDisplay = async (dataManager) => {
     const currentWeather = await dataManager.conditionManager.getData('current');
@@ -29,11 +28,9 @@ export const MainWeatherDisplay = async (dataManager) => {
     dataDisplay.appendChild(timeDisplay);
 
     const feelsLikeStyle = feelsLikeDetermine(feelsLike);
-    console.log(feelsLikeStyle)
 
     const temperatureDisplay = document.createElement('div');
-    temperatureDisplay.classList.add('temp-display');
-    temperatureDisplay.classList.add(feelsLikeStyle);
+    temperatureDisplay.classList.add('temp-display', feelsLikeStyle);
     const scaleText = dataManager.conditionManager.getScale() ? "F" : "C";
     temperatureDisplay.textContent = Math.round(currentWeather.getTemp()) + `°${scaleText}`;
     
@@ -50,8 +47,6 @@ export const MainWeatherDisplay = async (dataManager) => {
 
     weatherIconContainer.appendChild(weatherIconImg);
 
-    //const timeDisplay = document.createElement('div');
-
     weatherCard.appendChild(dataDisplay);
     weatherCard.appendChild(weatherIconContainer);
     weatherCard.appendChild(temperatureDisplay);
@@ -67,18 +62,18 @@ export const MainWeatherDisplay = async (dataManager) => {
 const feelsLikeDetermine = (temp) => {
     switch (true) {
         case temp > 100:
-            return commonStyles.tempScorch;
+            return 'temp-scorch';
         case temp > 90:
-            return commonStyles.tempHot;
+            return 'temp-hot';
         case temp > 80:
-            return commonStyles.tempWarm;
+            return 'temp-warm';
         case temp > 70:
-            return '';
+            return;
         case temp > 60:
-            return commonStyles.tempCool;
+            return 'temp-cool';
         case temp > 50:
-            return commonStyles.tempCold;
+            return 'temp-cold';
         default:
-            return commonStyles.tempFreeze;
+            return 'temp-freeze';
     }
 }
