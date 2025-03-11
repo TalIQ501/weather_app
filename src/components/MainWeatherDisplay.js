@@ -2,7 +2,6 @@ import { IconPicker } from "./iconPicker";
 import commonStyles from './WeatherCardCommon.module.css';
 
 export const MainWeatherDisplay = async (dataManager) => {
-    console.log(commonStyles);
     const currentWeather = await dataManager.conditionManager.getData('current');
     const dayDesc = dataManager.conditionManager.getDayDesc();
     const feelsLike = currentWeather.getFeelsLike();
@@ -29,11 +28,12 @@ export const MainWeatherDisplay = async (dataManager) => {
     dataDisplay.appendChild(locationDisplay);
     dataDisplay.appendChild(timeDisplay);
 
-    //const feelsLikeStyle = feelsLikeDetermine(feelsLike);
+    const feelsLikeStyle = feelsLikeDetermine(feelsLike);
+    console.log(feelsLikeStyle)
 
     const temperatureDisplay = document.createElement('div');
     temperatureDisplay.classList.add('temp-display');
-    temperatureDisplay.className(commonStyles.tempScorch)
+    temperatureDisplay.classList.add(feelsLikeStyle);
     const scaleText = dataManager.conditionManager.getScale() ? "F" : "C";
     temperatureDisplay.textContent = Math.round(currentWeather.getTemp()) + `°${scaleText}`;
     
@@ -64,23 +64,21 @@ export const MainWeatherDisplay = async (dataManager) => {
     return weatherCardContainer;
 }
 
-/*
 const feelsLikeDetermine = (temp) => {
     switch (true) {
         case temp > 100:
-            return 'temp-scorch';
+            return commonStyles.tempScorch;
         case temp > 90:
-            return 'temp-hot';
+            return commonStyles.tempHot;
         case temp > 80:
-            return 'temp-warm';
+            return commonStyles.tempWarm;
         case temp > 70:
             return '';
         case temp > 60:
-            return 'temp-cool';
+            return commonStyles.tempCool;
         case temp > 50:
-            return 'temp-cold';
+            return commonStyles.tempCold;
         default:
-            return 'temp-freeze';
+            return commonStyles.tempFreeze;
     }
 }
-*/
