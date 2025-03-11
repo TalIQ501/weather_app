@@ -23,7 +23,14 @@ module.exports = {
             },
             {
                 test: /\.css$/i,
-                use: ["style-loader", "css-loader"],
+                use: ["style-loader", {
+                    loader: "css-loader",
+                    options: {
+                        modules: true,
+                        esModule: true
+                    },
+                },
+            ],
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,

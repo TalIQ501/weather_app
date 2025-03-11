@@ -18,11 +18,20 @@ btnSetRegion.addEventListener('click', () => dialogWeatherForm.showModal())
 
 btnRefresh.addEventListener('click', () => refreshData(dataMng, dispMng, contentDiv));
 
+const scaleText = dataMng.conditionManager.getScale() ? "F" : "C";
+btnToggleScale.textContent = `°${scaleText}`;
+
 btnToggleScale.addEventListener('click', () => {
     dataMng.conditionManager.toggleScale();
 
+    const scaleText = dataMng.conditionManager.getScale() ? "F" : "C";
+    btnToggleScale.textContent = `°${scaleText}`;
+
+    if (dataMng.getCity() === null) return;
+    
     contentDiv.innerHTML = '';
     dispMng.mainWeatherPage(contentDiv, dataMng);
+    return;
 })
 
 weatherForm.addEventListener('submit', async e => {
@@ -31,6 +40,8 @@ weatherForm.addEventListener('submit', async e => {
     const formData = new FormData(e.target);
 
     await weatherFormHandler(dataMng, formData);
+
+    contentDiv.innerHTML = '';
 
     dispMng.mainWeatherPage(contentDiv, dataMng);
 

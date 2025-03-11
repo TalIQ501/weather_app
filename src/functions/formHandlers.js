@@ -12,8 +12,8 @@ export const weatherFormHandler = async (dataManager, formData) => {
     
     dataManager.setCity(city);
     dataManager.setCountry(country);
-    await dataManager.conditionManager.setData(weatherData);
     
-    console.log(dataManager.conditionManager.getAllData())
+    await dataManager.conditionManager.setData(weatherData);
+    dataManager.conditionManager.updateLastRetrieved();
     return;
 }

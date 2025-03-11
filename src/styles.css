@@ -17,5 +17,40 @@ img {
 }
 
 header {
+    display: flex;
+    flex-direction: row;
     padding: 10px 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#content {
+    width: 100%;
+}
+
+.main-weather-display-container {
+
+}
+
+.main-weather-display {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-weather-display .data-display {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.main-weather-display .temp-display {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.main-weather-display .day-weather-desc {
+    font-size: 1.25rem;
+    font-weight: 500;
 }

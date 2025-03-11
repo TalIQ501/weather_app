@@ -1,0 +1,23 @@
+.tempScorch {
+    color: crimson;
+}
+
+.tempHot {
+    color: orange;
+}
+
+.tempWarm {
+    color: yellow;
+}
+
+.tempCool {
+    color: lightblue;
+}
+
+.tempCold {
+    color: blue;
+}
+
+.tempFreeze {
+    color: darkblue;
+}

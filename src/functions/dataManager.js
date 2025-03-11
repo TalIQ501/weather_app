@@ -42,18 +42,20 @@ export const dataManager = () => {
             const feelsLike = timeConditions.feelslike;
             const feelsLikeMax = timeConditions.feelslikemax;
             const feelsLikeMin = timeConditions.feelslikemin;
+            const icon = timeConditions.icon;
         
             const getTemp = () => {
                 if (scaleFahr === true) return temperature
                 return tempToCelsius(temperature)
             }
             //const getTempC = () => tempToCelsius(temperature);
+            const getIcon = () => icon;
             const getDesc = () => conditionsDesc;
             const getFeelsLike = () => feelsLike;
             const getFeelsMax = () => feelsLikeMax;
             const getFeelsMin = () => feelsLikeMin;
 
-            return { getTemp, getDesc, getFeelsLike, getFeelsMax , getFeelsMin }
+            return { getTemp, getIcon, getDesc, getFeelsLike, getFeelsMax , getFeelsMin }
         }
         
         return { getScale, toggleScale, getLastRetrieved, updateLastRetrieved, setData, getData, getAllData, getDayDesc }
