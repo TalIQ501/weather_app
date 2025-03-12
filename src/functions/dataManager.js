@@ -46,9 +46,9 @@ export const dataManager = () => {
         
             const getTemp = () => {
                 if (scaleFahr === true) return temperature
-                return tempToCelsius(temperature)
+                return tempToCelsius(temperature);
             }
-            //const getTempC = () => tempToCelsius(temperature);
+
             const getIcon = () => icon;
             const getDesc = () => conditionsDesc;
             const getFeelsLike = () => feelsLike;
