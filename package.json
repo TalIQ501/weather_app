@@ -2,7 +2,7 @@
   "scripts": {
     "build": "webpack --config webpack.prod.js",
     "start": "webpack serve --config webpack.dev.js",
-    "deploy": "git subtree push --prefix dist origin gh-pages"
+    "deploy": "echo 'Starting deployment' && git checkout gh-pages && git merge master --no-edit && npx webpack && git add dist -f && git commit -m \"Deployment commit\" && git subtree push --prefix dist origin gh-pages && git checkout master"
   },
   "devDependencies": {
     "css-loader": "^7.1.2",
