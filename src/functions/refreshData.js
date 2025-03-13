@@ -8,6 +8,8 @@ export const refreshData = async (dataManager, displayManager, contentDiv) => {
     const weatherData = await weatherDataAPI(`${city},${country}`);
     await dataManager.conditionManager.setData(weatherData);
 
+    dataManager.conditionManager.updateLastRetrieved();
+
     contentDiv.innerHTML = '';
     
     displayManager.mainWeatherPage(contentDiv, dataManager);

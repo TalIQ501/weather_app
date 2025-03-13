@@ -4,6 +4,10 @@
     
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -24,17 +28,79 @@ header {
     align-items: center;
 }
 
+header nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+header .img-container {
+    max-width: 20px;
+    max-height: 1.15rem;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-toggle,
+.btn-submit {
+    background-color: inherit;
+    border-style: none;
+    font-size: 1.15rem;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-toggle:hover,
+.btn-submit:hover {
+    cursor: pointer;
+}
+
+.btn-primary .img-container:hover,
+.btn-secondary .img-container:hover {
+    transform: scale(1.5);
+}
+
+.btn-round {
+    border-radius: 50%;
+}
+
+.btn-toggle {
+    padding: 5px 10px;
+    background-color: inherit;
+    font-weight: 600;
+    color: rebeccapurple;
+    border: 0.1px solid rebeccapurple;
+}
+
+.btn-toggle:hover {
+    opacity: 0.5;
+}
+
+.btn-submit {
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-weight: 500;
+    color: #fff;
+    background-color: rebeccapurple;
+}
+
 #content {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     justify-content: center;
     align-items: center;
     justify-items: center;
+    padding: 30px;
+    overflow-x: hidden;
 }
 
 .main-weather-display-container {
     display: flex; 
     flex-direction: column;
-    align-items: center;    
+    align-items: center;
     width: 100%;
 }
 
@@ -62,6 +128,33 @@ header {
 .main-weather-display .day-weather-desc {
     font-size: 1.25rem;
     font-weight: 500;
+}
+
+.lower-display {
+    padding: 20px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    column-gap: 10x;
+    overflow-x: hidden;
+}
+
+.weather-card-container {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.weather-card {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border: 0.1px solid lightgray;
+    border-radius: 5px;
+    width: 100%;
 }
 
 .temp-scorch {

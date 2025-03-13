@@ -12,7 +12,7 @@
             <input name="input-country" id="input-country">
             <label for="input-city">City</label>
             <input name="input-city" id="input-city">
-            <button id="btn-weather-submit">Submit</button>
+            <button id="btn-weather-submit" class="btn-submit">Submit</button>
         </form>
     </dialog>
     <header>
@@ -20,9 +20,17 @@
             <h1>Weather App</h1>
         </div>
         <nav>
-            <button id="btn-set-location" class="btn-primary">Location</button>
-            <button id="btn-refresh" class="btn-secondary">Refresh</button>
-            <button id="btn-toggle-temp-scale"></button>
+            <button id="btn-set-location" class="btn-primary">
+                <div class="img-container">
+                    <img src="./img/other-icons/location-sign-svgrepo-com.svg" alt="Set Location">
+                </div>
+            </button>
+            <button id="btn-refresh" class="btn-secondary">
+                <div class="img-container">
+                    <img src="./img/other-icons/refresh-svgrepo-com.svg" alt="Refresh">
+                </div>
+            </button>
+            <button id="btn-toggle-temp-scale" class="btn-round btn-toggle"></button>
         </nav>
     </header>
     <section id="content">

@@ -29,7 +29,7 @@ export const dataManager = () => {
                 return conditionObj;
             }
             
-            return timeConditions(currentWeatherData['days'][dataOf]);
+            return timeConditions(currentWeatherData['days'][0]['hours'][dataOf]);
         }
         
         const getAllData = () => currentWeatherData;

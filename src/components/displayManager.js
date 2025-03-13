@@ -11,8 +11,19 @@ export const displayManager = () => {
     }
 
     const mainWeatherPage = async (targetDiv, dataManager) => {
-        const mainDisp = await MainWeatherDisplay(dataManager)
+        const time = dataManager.conditionManager.getLastRetrieved();
+        const startHour = time.getHours()
+        const mainDisp = await MainWeatherDisplay(dataManager);
+        const lowerDisp = document.createElement('div');
+        lowerDisp.classList.add('lower-display')
+
+        for (let i = startHour + 1; i < 24; i++) {
+            const card = await WeatherCard(dataManager, i);
+            lowerDisp.appendChild(card)
+        }
+
         targetDiv.appendChild(mainDisp);
+        targetDiv.appendChild(lowerDisp);
     }
 
     return { noLocation, mainWeatherPage }

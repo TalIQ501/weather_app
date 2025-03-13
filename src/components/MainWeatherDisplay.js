@@ -1,4 +1,5 @@
 import { IconPicker } from "./iconPicker";
+import { determineColour } from "../functions/determineColour";
 
 export const MainWeatherDisplay = async (dataManager) => {
     const currentWeather = await dataManager.conditionManager.getData('current');
@@ -22,12 +23,12 @@ export const MainWeatherDisplay = async (dataManager) => {
     
     const timeDisplay = document.createElement('div');
     timeDisplay.classList.add('time-display');
-    timeDisplay.textContent = `${time.getHours()}:${time.getMinutes()}`;
+    timeDisplay.textContent = `${time.getHours()}:${time.getMinutes().toString().padStart(2, '0')}`;
 
     dataDisplay.appendChild(locationDisplay);
     dataDisplay.appendChild(timeDisplay);
 
-    const feelsLikeStyle = feelsLikeDetermine(feelsLike);
+    const feelsLikeStyle = determineColour(feelsLike);
 
     const temperatureDisplay = document.createElement('div');
     temperatureDisplay.classList.add('temp-display', feelsLikeStyle);
@@ -57,23 +58,4 @@ export const MainWeatherDisplay = async (dataManager) => {
     weatherCardContainer.appendChild(weatherCard)
 
     return weatherCardContainer;
-}
-
-const feelsLikeDetermine = (temp) => {
-    switch (true) {
-        case temp > 100:
-            return 'temp-scorch';
-        case temp > 90:
-            return 'temp-hot';
-        case temp > 80:
-            return 'temp-warm';
-        case temp > 70:
-            return;
-        case temp > 60:
-            return 'temp-cool';
-        case temp > 50:
-            return 'temp-cold';
-        default:
-            return 'temp-freeze';
-    }
 }
